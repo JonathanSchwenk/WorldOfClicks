@@ -8,6 +8,8 @@ public class ServiceManager : MonoBehaviour
     
     public SaveManager saveManager;
     public AudioManager audioManager;
+    public GameManager gameManager;
+    public ClickManager clickManager;
     
 
 
@@ -33,6 +35,13 @@ public class ServiceManager : MonoBehaviour
             ServiceLocator.Register<IAudioManager>(audioManager);
         }
 
+        if (!ServiceLocator.IsRegistered<IClickManager>()) {
+            ServiceLocator.Register<IClickManager>(clickManager);
+        }
+        if (!ServiceLocator.IsRegistered<IGameManager>()) {
+            ServiceLocator.Register<IGameManager>(gameManager);
+        }
+
     }
 
 
@@ -46,6 +55,12 @@ public class ServiceManager : MonoBehaviour
         }
         if (ServiceLocator.IsRegistered<IAudioManager>()) {
             ServiceLocator.Unregister<IAudioManager>();
+        }
+        if (ServiceLocator.IsRegistered<IClickManager>()) {
+            ServiceLocator.Unregister<IClickManager>();
+        }
+        if (ServiceLocator.IsRegistered<IGameManager>()) {
+            ServiceLocator.Unregister<IGameManager>();
         }
     }
     

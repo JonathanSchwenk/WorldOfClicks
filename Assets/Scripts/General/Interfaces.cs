@@ -35,3 +35,8 @@ public interface IAudioManager {
 public interface IAdManager {
     void LoadRewardedAd();
 }
+
+public interface IClickManager {
+    long totClicks {get; set;}
+    void AddClick();
+}
