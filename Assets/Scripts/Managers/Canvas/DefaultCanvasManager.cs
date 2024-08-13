@@ -4,21 +4,18 @@ using UnityEngine;
 using TMPro;
 using Dorkbots.ServiceLocatorTools;
 
-public class DefaultCanvasManager : MonoBehaviour
-{
-    [SerializeField] private TextMeshProUGUI clickValueText;
+public class DefaultCanvasManager : MonoBehaviour {
+    [SerializeField] private TextMeshProUGUI populationValueText;
 
     private IClickManager clickManager;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         clickManager = ServiceLocator.Resolve<IClickManager>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        clickValueText.text = clickManager.totClicks.ToString();
+    void Update() {
+        populationValueText.text = clickManager.totClicks.ToString();
     }
 }

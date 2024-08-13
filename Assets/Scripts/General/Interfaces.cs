@@ -4,20 +4,20 @@ using UnityEngine;
 using System;
 
 public interface IGameManager {
-    GameState State {get; set;}
+    GameState State { get; set; }
     void UpdateGameState(GameState state);
 }
 
 public interface IObjectPooler {
-    List<Pool> Pools {get; set;}
-    Dictionary<string, Queue<GameObject>> poolDictionary {get; set;}
+    List<Pool> Pools { get; set; }
+    Dictionary<string, Queue<GameObject>> poolDictionary { get; set; }
 
     GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation);
 }
 
 public interface ISaveManager {
-    SaveData saveData {get; set;}
-    Action<int>OnSave {get; set;}
+    SaveData saveData { get; set; }
+    Action<int> OnSave { get; set; }
 
     void Save();
     void Load();
@@ -37,6 +37,6 @@ public interface IAdManager {
 }
 
 public interface IClickManager {
-    long totClicks {get; set;}
+    long totClicks { get; set; }
     void AddClick();
 }

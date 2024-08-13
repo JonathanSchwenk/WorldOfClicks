@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickManager : MonoBehaviour, IClickManager
-{
-    public long totClicks {get; set;}
+public class ClickManager : MonoBehaviour, IClickManager {
+    public long totClicks { get; set; }
 
     public void AddClick() {
         // TODO: For now add one but will later get more complex
@@ -13,14 +12,12 @@ public class ClickManager : MonoBehaviour, IClickManager
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         HandleUserInput();
     }
 
