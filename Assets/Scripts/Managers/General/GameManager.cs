@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour, IGameManager
 {
     public GameState State {get; set;}
     public Action<GameState> OnGameStateChanged {get; set;}
+    public String worldName {get; set;} // TODO: Save this to a file so I know where to continue from when I load the game
 
 
     private ISaveManager saveManager;
@@ -24,6 +25,8 @@ public class GameManager : MonoBehaviour, IGameManager
     void Start() {
         saveManager = ServiceLocator.Resolve<ISaveManager>();
         audioManager = ServiceLocator.Resolve<IAudioManager>();
+
+        InitGame();
     }
 
     // For next game, control more with this game managers state machine to keep everything in one spot
@@ -52,6 +55,11 @@ public class GameManager : MonoBehaviour, IGameManager
         // Null checker then calls the action for anthing subscribed to it
         OnGameStateChanged?.Invoke(newState);
     } 
+
+    private void InitGame() {
+        // TODO: Sets the world name if its not set yet. For now it will be set to the first world which is WildWest
+        worldName = "WildWest";
+    }
 
 
 }

@@ -7,15 +7,15 @@ using Dorkbots.ServiceLocatorTools;
 public class DefaultCanvasManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI populationValueText;
 
-    private IClickManager clickManager;
+    private IPopulationManager populationManager;
 
     // Start is called before the first frame update
     void Start() {
-        clickManager = ServiceLocator.Resolve<IClickManager>();
+        populationManager = ServiceLocator.Resolve<IPopulationManager>();
     }
 
     // Update is called once per frame
     void Update() {
-        populationValueText.text = clickManager.totClicks.ToString();
+        populationValueText.text = populationManager.totPopulation.ToString();
     }
 }

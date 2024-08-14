@@ -6,6 +6,7 @@ using System;
 public interface IGameManager {
     GameState State { get; set; }
     void UpdateGameState(GameState state);
+    String worldName {get; set;}
 }
 
 public interface IObjectPooler {
@@ -36,7 +37,12 @@ public interface IAdManager {
     void LoadRewardedAd();
 }
 
-public interface IClickManager {
-    long totClicks { get; set; }
-    void AddClick();
+public interface IPopulationManager {
+    long totPopulation { get; set; }
+    long populationThreshold { get; set; }
+    void UserClick();
+}
+
+public interface IBuildingManager {
+    List<ObjectsToAppear> objectsToAppear_Global { get; set; }
 }
