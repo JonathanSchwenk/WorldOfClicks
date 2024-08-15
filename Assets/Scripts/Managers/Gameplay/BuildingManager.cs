@@ -23,6 +23,7 @@ public class BuildingManager : MonoBehaviour, IBuildingManager {
 
     private IPopulationManager populationManager;
     private IGameManager gameManager;
+    private IShopManager shopManager;
 
     private void Awake() {
         objectsToAppear_Global = new List<ObjectsToAppear>();
@@ -33,19 +34,12 @@ public class BuildingManager : MonoBehaviour, IBuildingManager {
     void Start() {
         populationManager = ServiceLocator.Resolve<IPopulationManager>();
         gameManager = ServiceLocator.Resolve<IGameManager>();
+        shopManager = ServiceLocator.Resolve<IShopManager>();
     }
 
     // Update is called once per frame
     void Update() {
-        // TODO: Later this will be a button
-        if (populationManager.totPopulation >= populationManager.populationThreshold) {
-            AddItemToList();
-
-            // Subtract the population threshold from the total population
-            populationManager.totPopulation -= populationManager.populationThreshold;
-
-            // TODO: Increase population threshold maybe based on the world
-        }
+        
     }
 
     private void InitGlobalList() {

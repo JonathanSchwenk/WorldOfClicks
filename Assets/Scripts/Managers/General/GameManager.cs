@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour, IGameManager
         audioManager = ServiceLocator.Resolve<IAudioManager>();
 
         InitGame();
+
+        saveManager.Load();
     }
 
     // For next game, control more with this game managers state machine to keep everything in one spot

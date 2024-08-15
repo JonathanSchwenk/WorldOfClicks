@@ -11,6 +11,7 @@ public class ServiceManager : MonoBehaviour
     public GameManager gameManager;
     public PopulationManager populationManager;
     public BuildingManager buildingManager;
+    public ShopManager shopManager;
     
 
 
@@ -45,6 +46,9 @@ public class ServiceManager : MonoBehaviour
         if (!ServiceLocator.IsRegistered<IBuildingManager>()) {
             ServiceLocator.Register<IBuildingManager>(buildingManager);
         }
+        if (!ServiceLocator.IsRegistered<IShopManager>()) {
+            ServiceLocator.Register<IShopManager>(shopManager);
+        }
 
     }
 
@@ -68,6 +72,9 @@ public class ServiceManager : MonoBehaviour
         }
         if (ServiceLocator.IsRegistered<IBuildingManager>()) {
             ServiceLocator.Unregister<IBuildingManager>();
+        }
+        if (ServiceLocator.IsRegistered<IShopManager>()) {
+            ServiceLocator.Unregister<IShopManager>();
         }
     }
     

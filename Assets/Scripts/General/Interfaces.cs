@@ -39,10 +39,28 @@ public interface IAdManager {
 
 public interface IPopulationManager {
     long totPopulation { get; set; }
-    long populationThreshold { get; set; }
+    long maxPopulation { get; set; }
+    long autoClick { get; set; }
+    int timeAway { get; set; }
+    long clickPower { get; set; }
     void UserClick();
 }
 
 public interface IBuildingManager {
     List<ObjectsToAppear> objectsToAppear_Global { get; set; }
+    int nextObjectIndex { get; set; }
+    public void AddItemToList();
+}
+
+public interface IShopManager {
+    long cost_WorldUpgrade { get; set; }
+    long cost_AutoClickUpgrade { get; set; }
+    long cost_TimeAwayUpgrade { get; set; }
+    long cost_ClickPowerUpgrade { get; set; }
+
+    long increaseValue_WorldUpgrade { get; set; }
+    long increaseValue_AutoClickUpgrade { get; set; }
+    int increaseValue_TimeAwayUpgrade { get; set; }
+    long increaseValue_ClickPowerUpgrade { get; set; }
+    
 }
